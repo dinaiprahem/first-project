@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+
+metadata:
+  name: projectdep
+
+
+spec:
+  selector:
+    matchLabels:
+      app: dina
+      
+      
+  replicas: 3
+  template:
+    metadata:
+      name: my-pod
+      labels: 
+        app: dina
+        another-label: dina-app
+    spec: 
+      containers:
+        - image: nginx:alpine
+          name: nginx-container
+          resources: 
+            limits:
+              memory: "512Mi"
+              cpu: "1"
+            requests:
+              memory: "100Mi"
+           
+    
